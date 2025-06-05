@@ -1,0 +1,64 @@
+.task-section {
+  background: #ffffffaa;
+  border-radius: 16px;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+  padding: 20px;
+  backdrop-filter: blur(6px);
+  margin-bottom: 30px;
+}
+
+.task-card {
+  background: #f9fafb;
+  border-left: 6px solid #3b82f6;
+  border-radius: 12px;
+  padding: 15px;
+  margin-bottom: 15px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+  transition: transform 0.2s ease;
+}
+
+.task-card:hover {
+  transform: translateY(-3px);
+}
+
+.task-card h3 {
+  color: #1d4ed8;
+  margin-bottom: 6px;
+}
+
+.task-card p {
+  color: #334155;
+  font-size: 14px;
+}
+
+button.complete-btn {
+  background-color: #10b981;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  margin-top: 10px;
+  transition: background-color 0.2s ease;
+}
+
+button.complete-btn:hover {
+  background-color: #059669;
+}
+
+button.complete-btn[style*="background-color: #f59e0b"] {
+  background-color: #f59e0b;
+}
+
+button.complete-btn[style*="background-color: #f59e0b"]:hover {
+  background-color: #d97706;
+}
+
+button.complete-btn[style*="background-color: #ef4444"] {
+  background-color: #ef4444;
+}
+
+button.complete-btn[style*="background-color: #ef4444"]:hover {
+  background-color: #dc2626;
+}

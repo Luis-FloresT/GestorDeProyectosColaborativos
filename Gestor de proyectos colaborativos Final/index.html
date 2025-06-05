@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Gestor de Proyectos - Login</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="tasks.css" />
+  <link rel="stylesheet" href="proyecto.css">
+</head>
+<body>
+
+  <div class="container">
+
+    <!-- Formulario de Login -->
+    <form class="form-box" id="login-form" onsubmit="login(event)">
+      <h2>Iniciar Sesión</h2>
+      <input type="email" placeholder="Correo electrónico" id="login-email" required>
+      <input type="password" placeholder="Contraseña" id="login-password" required>
+      <button type="submit">Ingresar</button>
+      <p>¿No tienes cuenta? <a href="#" onclick="mostrarRegistro()">Regístrate</a></p>
+    </form>
+
+    <!-- Formulario de Registro -->
+    <form class="form-box hidden" id="register-form" onsubmit="registrar(event)">
+      <h2>Registrarse</h2>
+      <input type="text" placeholder="Nombre completo" id="register-name" required>
+      <input type="email" placeholder="Correo electrónico" id="register-email" required>
+      <input type="password" placeholder="Contraseña" id="register-password" required oninput="verificarFortaleza(); validarCoincidencia();">
+      <small id="password-strength" style="margin-bottom: 10px; display: block;"></small>
+      <input type="password" placeholder="Confirmar contraseña" id="confirm-password" required oninput="validarCoincidencia()">
+      <small id="password-match" style="margin-bottom: 10px; display: block;"></small>
+      <button type="submit">Crear cuenta</button>
+      <small id="registro-mensaje" style="display:block; margin-top:10px;"></small>
+      <p>¿Ya tienes cuenta? <a href="#" onclick="mostrarLogin()">Inicia sesión</a></p>
+    </form>
+
+    <!-- Contenido principal -->
+    <div class="main-content hidden" id="main-content">
+
+      <!-- Sección de Tareas Asignadas -->
+      <section id="task-section" class="hidden task-section">
+        <h2>Tareas Asignadas</h2>
+        <button id="add-task-btn">Añadir Tarea</button>
+        <div id="task-list"></div>
+      </section>
+
+      <!-- Modal para añadir nueva tarea -->
+<div id="add-task-modal" class="modal hidden">
+<div class="modal-content">
+<span id="close-add-task" class="close">&times;</span>
+<h3>Nueva Tarea</h3>
+<input type="text" id="new-task-name" placeholder="Nombre de la tarea" required>
+<input type="text" id="new-task-project" placeholder="Proyecto" required>
+<input type="date" id="new-task-deadline" required>
+<select id="new-task-status" required>
+<option value="Pendiente">Pendiente</option>
+<option value="En progreso">En progreso</option>
+<option value="Completada">Completada</option>
+</select>
+<button id="save-new-task-btn">Guardar tarea</button>
+</div>
+</div>
+
+<!-- Modal para editar tarea -->
+<div id="edit-task-modal" class="modal hidden">
+<div class="modal-content">
+<span id="close-edit-task" class="close">&times;</span>
+<h3>Editar Tarea</h3>
+<input type="text" id="edit-task-name" placeholder="Nombre de la tarea" required>
+<input type="text" id="edit-task-project" placeholder="Proyecto" required>
+<input type="date" id="edit-task-deadline" required>
+<select id="edit-task-status" required>
+<option value="Pendiente">Pendiente</option>
+<option value="En progreso">En progreso</option>
+<option value="Completada">Completada</option>
+</select>
+<button id="save-edit-task-btn">Guardar cambios</button>
+</div>
+</div>
+
+<!-- Sección de Proyectos -->
+<section id="project-section" class="hidden project-section">
+<h2>Proyectos</h2>
+<button id="add-project-btn">Agregar Proyecto</button>
+
+<!-- Modal para nuevo proyecto -->
+<div id="project-modal" class="modal hidden">
+<div class="modal-content">
+<span id="close-modal" class="close">&times;</span>
+<h3>Nuevo Proyecto</h3>
+<input type="text" id="project-name" placeholder="Nombre del Proyecto" required>
+<input type="text" id="project-members" placeholder="Integrantes" required>
+<input type="tel" id="project-phone" placeholder="Número de celular" required>
+<input type="date" id="project-start" placeholder="Fecha de inicio" required>
+<input type="date" id="project-end" placeholder="Fecha de finalización" required>
+<textarea id="project-desc" placeholder="Descripción del Proyecto" required></textarea>
+<button id="save-project-btn">Guardar Proyecto</button>
+</div>
+</div>
+
+<div id="project-list"></div>
+</section>
+
+</div>
+
+</div>
+
+<!-- Archivos JavaScript -->
+<script src="login.js"></script>
+<script src="tasks.js"></script>
+<script src="proyecto.js"></script>
+
+</body>
+</html>
